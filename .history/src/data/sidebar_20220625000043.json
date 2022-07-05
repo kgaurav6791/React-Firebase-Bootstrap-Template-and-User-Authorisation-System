@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Report Bug",
+    "icon": "bi-gear-fill",
+    "path": "/report-bug"
+  },
+  {
+    "title": "Support",
+    "icon": "bi-info-circle-fill",
+    "path": "/support"
+  }
+]

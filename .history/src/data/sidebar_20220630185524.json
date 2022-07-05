@@ -1,0 +1,143 @@
+[
+  {
+    "title": "Admin",
+    "icon": "bi-gear-fill",
+    "path": "/home/admin"
+  },
+  {
+    "title": "All Customers",
+    "icon": "bi-info-circle-fill",
+    "path": "/home/allcustomers"
+  },
+  {
+    "title": "Days",
+    "icon": "bi-gear-fill",
+    "childrens": [
+      {
+        "title": "Monday",
+        "icon": "bi-gear-fill",
+        "path": "/monday"
+      },
+      {
+        "title": "Tuesday",
+        "icon": "bi-info-circle-fill",
+        "path": "/tuesday"
+      },
+      {
+        "title": "Wednesday",
+        "icon": "bi-gear-fill",
+        "path": "/wednesday"
+      },
+      {
+        "title": "Thursday",
+        "icon": "bi-info-circle-fill",
+        "path": "/thursday"
+      },
+      {
+        "title": "Friday",
+        "icon": "bi-gear-fill",
+        "path": "/friday"
+      }
+    ]
+  },
+  {
+    "title": "Amalgamation Of CIT Cash",
+    "icon": "bi-gear-fill",
+    "path": "/amalgamationofcitcash"
+  },
+  {
+    "title": "Cash Order By RUN No",
+    "icon": "bi-info-circle-fill",
+    "path": "/cashorderbyrunno"
+  },
+  {
+    "title": "Cash Room",
+    "icon": "bi-gear-fill",
+    "path": "/cashroom"
+  },
+  {
+    "title": "Cash Sheet To Print",
+    "icon": "bi-info-circle-fill",
+    "path": "/cashsheettoprint"
+  },
+  {
+    "title": "Change Order By Summary",
+    "icon": "bi-gear-fill",
+    "path": "/changeorderbysummary"
+  },
+  {
+    "title": "Coin Balance",
+    "icon": "bi-info-circle-fill",
+    "path": "/coinbalance"
+  },
+  {
+    "title": "Coin Room",
+    "icon": "bi-gear-fill",
+    "path": "/coinroom"
+  },
+  {
+    "title": "Coin Sale",
+    "icon": "bi-info-circle-fill",
+    "path": "/coinsale"
+  },
+  {
+    "title": "Daily CIT Balance",
+    "icon": "bi-gear-fill",
+    "path": "/dailycitbalance"
+  },
+  {
+    "title": "Daily POOL Balance",
+    "icon": "bi-info-circle-fill",
+    "path": "/dailypoolbalance"
+  },
+  {
+    "title": "Dispatch Balance",
+    "icon": "bi-gear-fill",
+    "path": "/dispatchbalance"
+  },
+  {
+    "title": "Dispatch Labels",
+    "icon": "bi-info-circle-fill",
+    "path": "/dispatchlabels"
+  },
+  {
+    "title": "Drawings",
+    "icon": "bi-gear-fill",
+    "path": "/drawings"
+  },
+  {
+    "title": "Input Change Orders",
+    "icon": "bi-info-circle-fill",
+    "path": "/inputchangeorders"
+  },
+  {
+    "title": "Lodgment",
+    "icon": "bi-gear-fill",
+    "path": "/lodgment"
+  },
+  {
+    "title": "Manual Input Change Of Orders",
+    "icon": "bi-info-circle-fill",
+    "path": "/manualinputchangeoforders"
+  },
+  {
+    "title": "Manual Input Float",
+    "icon": "bi-gear-fill",
+    "path": "/manualinputfloat"
+  },
+  {
+    "title": "Processed CIT Balance",
+    "icon": "bi-info-circle-fill",
+    "path": "/processedcitBalance"
+  },
+  {
+    "title": "Received Change Payment",
+    "icon": "bi-gear-fill",
+    "path": "/receivedchangepayment"
+  },
+  {
+    "title": "Shift Balance Sheet",
+    "icon": "bi-info-circle-fill",
+    "path": "/shiftbalancesheet"
+  }
+]
