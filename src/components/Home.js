@@ -1,10 +1,19 @@
 import React from "react";
-import { Button } from "react-bootstrap";
+import { Button, Navbar } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { useUserAuth } from "../context/UserAuthContext";
+import { useMemo } from "react";
+import HeaderNavBar from "./HeaderNavBar";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Sidebar from "./Sidebar.js";
+import Admin from "../pages/Admin";
+import AllCustomers from "../pages/AllCustomers";
+import AmalgamationOfCITCash from "../pages/AmalgamationOfCITCash";
 
 const Home = () => {
   const { logOut, user } = useUserAuth();
+
   const navigate = useNavigate();
   const handleLogout = async () => {
     try {
@@ -12,18 +21,26 @@ const Home = () => {
       navigate("/");
     } catch (error) {
       console.log(error.message);
+      console.log(useUserAuth);
     }
   };
   return (
     <>
-      <div className="p-4 box mt-3 text-center">
-        Hello Welcome <br />
-        {user && user.email}
-      </div>
-      <div className="d-grid gap-2">
-        <Button variant="primary" onClick={handleLogout}>
-          Log out
-        </Button>
+      {/* {useMemo(
+        () => (
+          <div>
+            <HeaderNavBar />
+          </div>
+        ),
+        []
+      )} */}
+
+      <HeaderNavBar />
+      <div className="main-container">
+        {<Sidebar />}
+        <div className="right-container">
+          <h1 className="title">Home</h1>
+        </div>
       </div>
     </>
   );
