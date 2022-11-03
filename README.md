@@ -8,13 +8,19 @@
 5. Header navbar has typical logout button and their own menu items.
 6. Each menu item points to there own page, making it easy to customise this project to your own need.
 
+## Working Demo
+https://brinks-global-dev.firebaseapp.com/home<br />
+Use credentials-<br />
+Username:demo@demo.com
+Password:demo@demo.com
+
 ## Dependencies
-"bootstrap": "^5.1.3",
-"firebase": "^9.4.1",
-"firebase-tools": "^11.1.0",
-"react-bootstrap": "^2.0.2",
-"react-google-button": "^0.7.2",
-"react-router-dom": "^6.0.2",
+"bootstrap": "^5.1.3",<br />
+"firebase": "^9.4.1",<br />
+"firebase-tools": "^11.1.0",<br />
+"react-bootstrap": "^2.0.2",<br />
+"react-google-button": "^0.7.2",<br />
+"react-router-dom": "^6.0.2",<br />
 
 ## HOW TO GET STARTED
 1. Clone this directory.
