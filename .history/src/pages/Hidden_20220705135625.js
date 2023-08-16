@@ -10,7 +10,6 @@ import {
   doc,
   updateDoc,
   addDoc,
-  Timestamp,
 } from "firebase/firestore";
 import { db } from "../firebase.js";
 
@@ -34,15 +33,22 @@ const Hidden = () => {
       name: newName,
       age: Number(newAge),
       email: newEmail,
-      timeStamp: Timestamp.now(),
     });
     setDataUpdated(dataUpdated + 1);
     let htmlCollection = document
       .getElementById("addnewuserform")
       .getElementsByTagName("input");
     for (let i = 0; i < htmlCollection.length; i++) {
-      htmlCollection[i].value = "";
-      console.log(htmlCollection[i]);
+      htmlCollection.value = "";
+    }
+    document
+      .getElementById("addnewuserform")
+      .getElementsByTagName("input")[0].value = "";
+
+    {
+      document
+        .getElementById("addnewuserform")
+        .getElementsByTagName("input")[0].value = "";
     }
   };
   const deleteUser = async (id) => {

@@ -10,7 +10,6 @@ import {
   doc,
   updateDoc,
   addDoc,
-  Timestamp,
 } from "firebase/firestore";
 import { db } from "../firebase.js";
 
@@ -34,16 +33,11 @@ const Hidden = () => {
       name: newName,
       age: Number(newAge),
       email: newEmail,
-      timeStamp: Timestamp.now(),
     });
     setDataUpdated(dataUpdated + 1);
-    let htmlCollection = document
-      .getElementById("addnewuserform")
-      .getElementsByTagName("input");
-    for (let i = 0; i < htmlCollection.length; i++) {
-      htmlCollection[i].value = "";
-      console.log(htmlCollection[i]);
-    }
+    console.log("dataUpdated-adduser");
+    document.getElementById("addnewuserform").getElementsByTagName("td") =
+    0;
   };
   const deleteUser = async (id) => {
     const userDoc = doc(db, "users", id);
@@ -133,7 +127,7 @@ const Hidden = () => {
                   Add New User
                 </td>
               </tr>
-              <tr id="addnewuserform" className="table-secondary" key="new">
+              <tr id="addnewuser" className="table-secondary" key="new">
                 {" "}
                 <td>
                   {" "}

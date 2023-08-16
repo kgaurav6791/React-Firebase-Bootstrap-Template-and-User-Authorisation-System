@@ -10,7 +10,6 @@ import {
   doc,
   updateDoc,
   addDoc,
-  Timestamp,
 } from "firebase/firestore";
 import { db } from "../firebase.js";
 
@@ -34,16 +33,9 @@ const Hidden = () => {
       name: newName,
       age: Number(newAge),
       email: newEmail,
-      timeStamp: Timestamp.now(),
     });
     setDataUpdated(dataUpdated + 1);
-    let htmlCollection = document
-      .getElementById("addnewuserform")
-      .getElementsByTagName("input");
-    for (let i = 0; i < htmlCollection.length; i++) {
-      htmlCollection[i].value = "";
-      console.log(htmlCollection[i]);
-    }
+    console.log("dataUpdated-adduser");
   };
   const deleteUser = async (id) => {
     const userDoc = doc(db, "users", id);
@@ -94,9 +86,34 @@ const Hidden = () => {
               {users.map((user) => {
                 return (
                   <tr className="table-secondary" key={user.id}>
-                    <td>{user.name}</td>
-                    <td>{user.age}</td>
-                    <td>{user.email}</td>
+                    <td>
+                      <input
+                        type="string"
+                        placeholder={user.name}
+                        onChange={(event) => {
+                          setNewName(event.target.value);
+                        }}
+                      />{" "}
+                    </td>
+                    <td>
+                      {" "}
+                      <input
+                        type="number"
+                        placeholder={user.age}
+                        onChange={(event) => {
+                          setNewAge(event.target.value);
+                        }}
+                      />{" "}
+                    </td>
+                    <td>
+                      <input
+                        type="email"
+                        placeholder={user.email}
+                        onChange={(event) => {
+                          setNewEmail(event.target.value);
+                        }}
+                      />{" "}
+                    </td>
 
                     <td style={{ width: "1px" }} className="">
                       <Button
@@ -125,16 +142,18 @@ const Hidden = () => {
                 );
               })}
               <tr
-                className="table-success"
+                className="table-secondary"
                 key="addnewrow"
-                style={{ paddingLeft: "200px" }}
+                style={{ textAlign: "left", marginLeft: "20px" }}
               >
-                <td colSpan="5" style={{}}>
+                <td
+                  colSpan="5"
+                  style={{ textAlign: "left", marginLeft: "20px" }}
+                >
                   Add New User
                 </td>
               </tr>
-              <tr id="addnewuserform" className="table-secondary" key="new">
-                {" "}
+              <tr className="table-secondary" key="new">
                 <td>
                   {" "}
                   <input
@@ -162,6 +181,7 @@ const Hidden = () => {
                     }}
                   />{" "}
                 </td>
+
                 <td style={{ width: "1px" }} className="" colSpan={2}>
                   <Button className="" variant="primary" onClick={addUsers}>
                     Add New User

@@ -55,7 +55,12 @@ const Hidden = () => {
     const getUsers = async () => {
       const data = await getDocs(usersCollectionRef);
       console.log(data, "yooo");
-      setUsers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      setUsers(
+        data.docs.map((doc) => ({
+          ...doc.data().orderBy("timeStamp", "desc"),
+          id: doc.id,
+        }))
+      );
       //   Retrieves all fields in the document as an Object.
       //(method) QueryDocumentSnapshot<DocumentData>.data(options?: SnapshotOptions | undefined): DocumentData
       console.log(users);

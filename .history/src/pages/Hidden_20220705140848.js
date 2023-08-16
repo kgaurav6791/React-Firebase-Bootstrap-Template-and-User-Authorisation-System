@@ -10,7 +10,6 @@ import {
   doc,
   updateDoc,
   addDoc,
-  Timestamp,
 } from "firebase/firestore";
 import { db } from "../firebase.js";
 
@@ -34,7 +33,7 @@ const Hidden = () => {
       name: newName,
       age: Number(newAge),
       email: newEmail,
-      timeStamp: Timestamp.now(),
+      timeStamp: firebase.firestore.Timestamp.now(),
     });
     setDataUpdated(dataUpdated + 1);
     let htmlCollection = document

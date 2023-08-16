@@ -9,8 +9,6 @@ import {
   deleteDoc,
   doc,
   updateDoc,
-  addDoc,
-  Timestamp,
 } from "firebase/firestore";
 import { db } from "../firebase.js";
 
@@ -22,34 +20,17 @@ const Hidden = () => {
   const [newAge, setNewAge] = useState(0);
   const usersCollectionRef = collection(db, "users");
   const [dataUpdated, setDataUpdated] = useState(0);
-  const updateUser = async (id) => {
+  const updateUser = async (id, age) => {
     const userDoc = doc(db, "users", id);
-    const newFields = { name: newName, age: Number(newAge), email: newEmail };
+    const newFields = { age: age + 1 };
     await updateDoc(userDoc, newFields);
-    setDataUpdated(dataUpdated + 1);
-    console.log("dataUpdated-updateuser");
   };
-  const addUsers = async () => {
-    await addDoc(usersCollectionRef, {
-      name: newName,
-      age: Number(newAge),
-      email: newEmail,
-      timeStamp: Timestamp.now(),
-    });
-    setDataUpdated(dataUpdated + 1);
-    let htmlCollection = document
-      .getElementById("addnewuserform")
-      .getElementsByTagName("input");
-    for (let i = 0; i < htmlCollection.length; i++) {
-      htmlCollection[i].value = "";
-      console.log(htmlCollection[i]);
-    }
-  };
+  const addUsers = () => {};
   const deleteUser = async (id) => {
     const userDoc = doc(db, "users", id);
     await deleteDoc(userDoc);
     setDataUpdated(dataUpdated + 1);
-    console.log("dataUpdated-deleteuser");
+    console.log("dataUpdated");
   };
   useEffect(() => {
     const getUsers = async () => {
@@ -94,9 +75,36 @@ const Hidden = () => {
               {users.map((user) => {
                 return (
                   <tr className="table-secondary" key={user.id}>
-                    <td>{user.name}</td>
-                    <td>{user.age}</td>
-                    <td>{user.email}</td>
+                    <td>
+                      <input
+                        type="string"
+                        placeholder={user.name}
+                        onChange={(event) => {
+                          setNewName(event.target.value);
+                        }}
+                      />{" "}
+                    </td>
+                    <td>
+                      {" "}
+                      <input
+                        type="number"
+                        placeholder="Age..."
+                        value={user.age}
+                        onChange={(event) => {
+                          setNewAge(event.target.value);
+                        }}
+                      />{" "}
+                    </td>
+                    <td>
+                      <input
+                        type="email"
+                        placeholder="Email..."
+                        value={user.email}
+                        onChange={(event) => {
+                          setNewEmail(event.target.value);
+                        }}
+                      />{" "}
+                    </td>
 
                     <td style={{ width: "1px" }} className="">
                       <Button
@@ -124,17 +132,7 @@ const Hidden = () => {
                   </tr>
                 );
               })}
-              <tr
-                className="table-success"
-                key="addnewrow"
-                style={{ paddingLeft: "200px" }}
-              >
-                <td colSpan="5" style={{}}>
-                  Add New User
-                </td>
-              </tr>
-              <tr id="addnewuserform" className="table-secondary" key="new">
-                {" "}
+              <tr className="table-secondary" key="new">
                 <td>
                   {" "}
                   <input
@@ -162,6 +160,7 @@ const Hidden = () => {
                     }}
                   />{" "}
                 </td>
+
                 <td style={{ width: "1px" }} className="" colSpan={2}>
                   <Button className="" variant="primary" onClick={addUsers}>
                     Add New User
