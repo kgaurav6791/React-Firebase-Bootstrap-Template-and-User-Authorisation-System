@@ -61,8 +61,8 @@ In that app panel, find “SDK setup and configuration” and copy the firebaseC
 npx firebase login
 ```
 
--✔ Enable Gemini in Firebase features? No
--✔ Allow Firebase to collect CLI and Emulator Suite usage and error reporting information? No
+- ✔ Enable Gemini in Firebase features? No
+- ✔ Allow Firebase to collect CLI and Emulator Suite usage and error reporting information? No
 
 - Success! Logged in as ************@gmail.com
 
@@ -72,8 +72,8 @@ npx firebase init hosting
 npx firebase deploy --only hosting
 ```
 
--✔ Are you ready to proceed? Yes
--✔ What do you want to use as your public directory? dist [vite build to dist folder not public]
--✔ Configure as a single-page app (rewrite all urls to /index.html)? Yes [Since its a vite project its a SPA]
--✔ Set up automatic builds and deploys with GitHub? No [Firebase cli needs access to all github repositories public and private,for this to work,so better to deploy manually]
--✔ File dist/index.html already exists. Overwrite? No [We want to use the index file from vite]
+- ✔ Are you ready to proceed? Yes
+- ✔ What do you want to use as your public directory? dist [vite build to dist folder not public]
+- ✔ Configure as a single-page app (rewrite all urls to /index.html)? Yes [Since its a vite project its a SPA]
+- ✔ Set up automatic builds and deploys with GitHub? No [Firebase cli needs access to all github repositories public and private,for this to work,so better to deploy manually]
+- ✔ File dist/index.html already exists. Overwrite? No [We want to use the index file from vite]
