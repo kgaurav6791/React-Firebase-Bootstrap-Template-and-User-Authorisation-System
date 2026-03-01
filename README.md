@@ -67,6 +67,7 @@ npx firebase login
 - Success! Logged in as kgaurav6791@gmail.com
 
 ```
+npm run build
 npx firebase deploy --only hosting
 
 ```
