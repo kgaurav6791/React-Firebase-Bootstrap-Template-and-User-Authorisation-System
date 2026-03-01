@@ -8,6 +8,7 @@
 4. Sidebar Menu has one item with submenu(child menu) and fully functioning toggle to expand and contract submenu.Copy and expand this code to fit any project menu style.
 5. Header navbar has typical logout button and their own menu items.
 6. Each menu item points to there own page, making it easy to customise this project to your own need.
+7. This project is hosted on Firebase.
 
 ## Working Demo
 
@@ -63,7 +64,7 @@ npx firebase login
 ✔ Enable Gemini in Firebase features? No
 ✔ Allow Firebase to collect CLI and Emulator Suite usage and error reporting information? No
 
-- Success! Logged in as kgaurav6791@gmail.com
+- Success! Logged in as ************@gmail.com
 
 ```
 npm run build
