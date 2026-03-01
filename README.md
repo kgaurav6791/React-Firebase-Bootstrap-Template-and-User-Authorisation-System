@@ -58,7 +58,6 @@ In that app panel, find “SDK setup and configuration” and copy the firebaseC
 
 ```
 npx firebase login
-
 ```
 
 ✔ Enable Gemini in Firebase features? No
@@ -68,8 +67,8 @@ npx firebase login
 
 ```
 npm run build
+npx firebase init hosting
 npx firebase deploy --only hosting
-
 ```
 
 ✔ Are you ready to proceed? Yes
