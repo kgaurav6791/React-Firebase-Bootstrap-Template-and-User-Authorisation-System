@@ -53,3 +53,26 @@ Click your Web app (</>)
 If you don’t see a web app, click Add app → choose Web to register one.
 
 In that app panel, find “SDK setup and configuration” and copy the firebaseConfig object.
+
+## HOW TO UPDATE LATER
+
+```
+npx firebase login
+
+```
+
+✔ Enable Gemini in Firebase features? No
+✔ Allow Firebase to collect CLI and Emulator Suite usage and error reporting information? No
+
+- Success! Logged in as kgaurav6791@gmail.com
+
+```
+npx firebase deploy --only hosting
+
+```
+
+✔ Are you ready to proceed? Yes
+✔ What do you want to use as your public directory? dist [vite build to dist folder not public]
+✔ Configure as a single-page app (rewrite all urls to /index.html)? Yes [Since its a vite project its a SPA]
+✔ Set up automatic builds and deploys with GitHub? No [Firebase cli needs access to all github repositories public and private,for this to work,so better to deploy manually]
+✔ File dist/index.html already exists. Overwrite? No [We want to use the index file from vite]
