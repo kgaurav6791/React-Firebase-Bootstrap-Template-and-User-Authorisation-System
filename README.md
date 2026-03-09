@@ -43,17 +43,17 @@ Password:demo@demo.com
 
 # Get the main config (API key, auth domain, project id, sender id, app id, measurement id) for env file
 
-Open Firebase Console → select your project
+- Open Firebase Console → select your project
 
-Click the gear icon ⚙️ → Project settings
+- Click the gear icon ⚙️ → Project settings
 
-In the General tab, scroll to Your apps
+- In the General tab, scroll to Your apps
 
-Click your Web app (</>)
+- Click your Web app (</>)
 
-If you don’t see a web app, click Add app → choose Web to register one.
+- If you don’t see a web app, click Add app → choose Web to register one.
 
-In that app panel, find “SDK setup and configuration” and copy the firebaseConfig object.
+- In that app panel, find “SDK setup and configuration” and copy the firebaseConfig object.
 
 ## HOW TO UPDATE LATER
 
@@ -64,7 +64,7 @@ npx firebase login
 - ✔ Enable Gemini in Firebase features? No
 - ✔ Allow Firebase to collect CLI and Emulator Suite usage and error reporting information? No
 
-- Success! Logged in as ************@gmail.com
+- Success! Logged in as ****\*\*\*\*****@gmail.com
 
 ```
 npm run build
