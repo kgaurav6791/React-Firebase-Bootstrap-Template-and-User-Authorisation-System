@@ -14,9 +14,16 @@ const FirebaseConfigErrorPage = ({ error }) => {
         </Alert.Heading>
         <p>
           {isMissingConfig
-            ? `Add these missing Vite environment variables: ${error.missingKeys.join(", ")}.`
+            ? `Add these missing Vite environment variables:-`
             : "Check that the Firebase API key, auth domain, project ID, sender ID, and app ID match your Firebase project."}
-        </p>
+            </p>
+        {isMissingConfig && (
+          <>
+            ${error.missingKeys.join(", ")}
+            <br />
+            <br />
+            <b>See Readme.md for Instructions.</b>
+        </>)}
         {error?.message && <p className="mb-0">Firebase error: {error.message}</p>}
       </Alert>
     </Container>
