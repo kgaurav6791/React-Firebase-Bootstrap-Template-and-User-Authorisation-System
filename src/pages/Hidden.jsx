@@ -58,11 +58,11 @@ const Hidden = () => {
       setUsers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
       //   Retrieves all fields in the document as an Object.
       //(method) QueryDocumentSnapshot<DocumentData>.data(options?: SnapshotOptions | undefined): DocumentData
-      console.log(users);
+      // console.log(users);
     };
 
     getUsers();
-  }, [dataUpdated]);
+  }, [dataUpdated, usersCollectionRef]);
 
   return (
     <>
