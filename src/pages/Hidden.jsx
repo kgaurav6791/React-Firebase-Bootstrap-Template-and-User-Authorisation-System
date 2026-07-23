@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useReducer } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import HeaderNavBar from "../components/HeaderNavBar";
 import Sidebar from "../components/Sidebar";
 import Table from "react-bootstrap/Table";
@@ -15,12 +15,11 @@ import {
 import { db } from "../firebase.js";
 
 const Hidden = () => {
-  const activateLasers = () => {};
   const [users, setUsers] = useState([]);
   const [newName, setNewName] = useState("");
   const [newEmail, setNewEmail] = useState("");
   const [newAge, setNewAge] = useState(0);
-  const usersCollectionRef = collection(db, "users");
+  const usersCollectionRef = useMemo(() => collection(db, "users"), []);
   const [dataUpdated, setDataUpdated] = useState(0);
   const updateUser = async (id) => {
     const userDoc = doc(db, "users", id);
@@ -58,11 +57,10 @@ const Hidden = () => {
       setUsers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
       //   Retrieves all fields in the document as an Object.
       //(method) QueryDocumentSnapshot<DocumentData>.data(options?: SnapshotOptions | undefined): DocumentData
-      console.log(users);
     };
 
     getUsers();
-  }, [dataUpdated]);
+  }, [dataUpdated, usersCollectionRef]);
 
   return (
     <>
@@ -229,7 +227,7 @@ const Hidden = () => {
                       <Button
                         className=""
                         variant="primary"
-                        onClick={activateLasers}
+                        onClick={() => updateUser(user.id)}
                       >
                         Edit/Update
                       </Button>

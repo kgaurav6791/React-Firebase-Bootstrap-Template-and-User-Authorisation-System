@@ -1,16 +1,11 @@
 import React from "react";
-import { useState } from "react";
 import { Button, Navbar } from "react-bootstrap";
 import { useNavigate } from "react-router";
-import { useUserAuth } from "../context/UserAuthContext";
+import { useUserAuth } from "../context/useUserAuth";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
-import { Route, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-import Sidebar from "./Sidebar.jsx";
-import Admin from "../pages/Admin";
-import AllCustomers from "../pages/AllCustomers";
-import AmalgamationOfCITCash from "../pages/AmalgamationOfCITCash";
 
 const HeaderNavBar = () => {
   const { logOut, user } = useUserAuth();
@@ -22,7 +17,6 @@ const HeaderNavBar = () => {
       navigate("/");
     } catch (error) {
       console.log(error.message);
-      console.log(useUserAuth);
     }
   };
 

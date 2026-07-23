@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -9,7 +9,7 @@ import {
 } from "firebase/auth";
 import { auth } from "../firebase";
 
-const userAuthContext = createContext();
+import { UserAuthContext } from "./UserAuthContextBase";
 
 export function UserAuthContextProvider({ children }) {
   // EVERYTHING BELOW IS INSIDE THIS FUNCTION COMPONENT CALLED UserAuthContextProvider.
@@ -45,21 +45,10 @@ export function UserAuthContextProvider({ children }) {
   }, []);
 
   return (
-    <userAuthContext.Provider // THIS LINE WILL MAKE OUR FUNCTIONS AVAILABLE TO ALL THE CHILDREN COMPONENTS(COMPONENTS IN ROUTES)
-      value={{ user, logIn, signUp, logOut, googleSignIn }} //userAuthContext is what we used to createContext.
+    <UserAuthContext.Provider // THIS LINE WILL MAKE OUR FUNCTIONS AVAILABLE TO ALL THE CHILDREN COMPONENTS(COMPONENTS IN ROUTES)
+      value={{ user, logIn, signUp, logOut, googleSignIn }} //UserAuthContext is what we used to createContext.
     >
       {children}
-    </userAuthContext.Provider>
+    </UserAuthContext.Provider>
   );
 }
-
-export function useUserAuth() {
-  return useContext(userAuthContext); // Even though the 'functions and object user' is now available to child components
-  // To actually access these two ,the syntax requires --->>>  const user = useContext(UserContext);
-} // so to keep our code clean instead of typing this code in all children(YES THIS WORKS TOO,ALREADY CHECKED)->
-// import {useContext} from React;
-//import { userAuthContext } from "../context/UserAuthContext";
-// const user = useContext(userAuthContext);
-//We are doing this part upto const user(user is AN OBJECT RETURNED BY ALL THESE FIREBASE AUTH FUNCTIONS) here and simply exporting the result user object
-// this user object(it also have other stuff in it) can simply be imported,destructured and used
-// in children in one line.

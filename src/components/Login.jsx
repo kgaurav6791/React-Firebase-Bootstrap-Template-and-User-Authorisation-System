@@ -1,16 +1,22 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Form, Alert } from "react-bootstrap";
 import { Button } from "react-bootstrap";
-import GoogleButton from "react-google-button";
-import { useUserAuth } from "../context/UserAuthContext";
+import { useUserAuth } from "../context/useUserAuth";
 import { Container, Row, Col } from "react-bootstrap";
+
+const CONFIG_ERROR_CODES = new Set([
+  "auth/api-key-not-valid",
+  "auth/invalid-api-key",
+  "auth/invalid-auth-domain",
+  "auth/unauthorized-domain",
+]);
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const { logIn, googleSignIn } = useUserAuth();
+  const { logIn } = useUserAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -20,17 +26,19 @@ const Login = () => {
       await logIn(email, password);
       navigate("/home");
     } catch (err) {
-      setError(err.message);
-    }
-  };
+      if (CONFIG_ERROR_CODES.has(err.code)) {
+        navigate("/firebase-config-error", {
+          state: {
+            firebaseConfigError: {
+              type: "invalid",
+              message: err.message,
+            },
+          },
+        });
+        return;
+      }
 
-  const handleGoogleSignIn = async (e) => {
-    e.preventDefault();
-    try {
-      await googleSignIn();
-      navigate("/home");
-    } catch (error) {
-      console.log(error.message);
+      setError(err.message);
     }
   };
 

@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 
 export default function SidebarItem({ item }) {
   const [open, setOpen] = useState(false);
-  let activeClassName = "navbarleft";
   if (item.childrens) {
     return (
       <div className={open ? "sidebar-item open" : "sidebar-item"}>

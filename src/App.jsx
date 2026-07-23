@@ -7,6 +7,8 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { UserAuthContextProvider } from "./context/UserAuthContext";
+import { firebaseConfigError } from "./firebase";
+import FirebaseConfigErrorPage from "./components/FirebaseConfigErrorPage";
 import PageNotFound from "./components/PageNotFound";
 import Admin from "./pages/Admin";
 import AllCustomers from "./pages/AllCustomers";
@@ -38,6 +40,10 @@ import Friday from "./pages/Friday";
 import Hidden from "./pages/Hidden";
 
 function App() {
+  if (firebaseConfigError) {
+    return <FirebaseConfigErrorPage error={firebaseConfigError} />;
+  }
+
   return (
     <UserAuthContextProvider>
       <Routes>
@@ -276,6 +282,10 @@ function App() {
               <Friday />
             </ProtectedRoute>
           }
+        />
+        <Route
+          path="/firebase-config-error"
+          element={<FirebaseConfigErrorPage />}
         />
         <Route path="/*" element={<PageNotFound />} />
       </Routes>
