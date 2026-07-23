@@ -20,6 +20,10 @@ const Login = () => {
       await logIn(email, password);
       navigate("/home");
     } catch (err) {
+      if (["auth/api-key-not-valid", "auth/invalid-api-key", "auth/invalid-auth-domain", "auth/unauthorized-domain"].includes(err.code)) {
+        setError("Firebase configuration is invalid. Check your Firebase environment variables.");
+        return;
+      }
       setError(err.message);
     }
   };
